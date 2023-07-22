@@ -1,0 +1,141 @@
+### User {
+
+    Admin User : {
+        email: admin@gmail.com ,
+        password: 123456789
+    }
+
+    ## register / Add User <POST>
+    https://mini-insta.onrender.com/user/register {
+        body: {
+            "username": ,
+            "email":,
+            "password": "",
+            "cPassword": "",
+            "phone": <optional>,
+            "gender": <optional>,
+            "role": <optional>
+        }
+        Authorization {
+            Barer Token : Login with Admin User :D
+        }
+    }
+
+    ## login <POST>
+    https://mini-insta.onrender.com/user/login {
+        body:{
+            "email":"",
+            "password": ""
+        }
+    }
+
+    ## Show Users <GET>
+    https://mini-insta.onrender.com/user/allUsers{
+        query: {
+            page , limit
+        }
+    }
+
+    ## change Phone <PATCH>
+    https://mini-insta.onrender.com/user/updatePhone {
+        body: {
+            "phone"
+        }
+        Authorization {
+            Barer Token : Login with Same User :D
+        }
+    }
+
+    ## Change Profile picture <PATCH>
+    https://mini-insta.onrender.com/user/addProfilePic {
+        body:{
+            form-data with Key "avatar"
+        }
+        Authorization {
+            Barer Token : Login with Same User :D
+        }
+    }
+
+    ## Delete User <DELETE>
+    https://mini-insta.onrender.com/user/deleteUser/:userId {
+        params: {
+            userId
+        }
+        Authorization {
+            Barer Token : Login with Admin User :D
+        }
+    }
+
+}
+
+### Post {
+    ## Add Post <POST>
+    https://mini-insta.onrender.com/addPost {
+        body: {
+            "content"
+        }
+        Authorization: {
+            Barer Token : Login With User
+        }
+    }
+
+    ## Add Comment <POST>
+    https://mini-insta.onrender.com/addComment/:postId {
+        body: {
+            "content"
+        }
+        params: {
+            postId
+        }
+        Authorization: {
+            Barer Token : Login With User
+        }
+    }
+
+    ## Add Reply <POST>
+    https://mini-insta.onrender.com/addReply/commentId {
+        body: {
+            "content"
+        }
+        params:{
+            commentId
+        }
+        Authorization: {
+            Barer Token : Login With User
+        }
+    }
+
+    ## Edit Post <PUT>
+    https://mini-insta.onrender.com/editPost/:postId {
+        body: {
+            "content"
+        }
+        params: {
+            postId
+        }
+        Authorization: {
+            Barer Token : Login With User
+        }
+    }
+
+    ## Delete Post <DELETE>
+    https://mini-insta.onrender.com/deletePost/postId {
+        params: {
+            postId
+        }
+        Authorization: {
+            Barer Token : Login With User
+        }
+    }
+
+    ## Like / Dislike <PUT>
+    https://mini-insta.onrender.com/updateLike/postId {
+        params: {
+            postId
+        }
+        Authorization: {
+            Barer Token : Login With User
+        }
+    }
+
+}

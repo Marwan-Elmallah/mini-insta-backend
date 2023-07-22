@@ -9,7 +9,7 @@ const endPoints = {
     updateProfilePic: [roles.user],
     register: [roles.admin],
     deleteUser: [roles.admin],
-    addPost: [roles.user],
+    addPost: [roles.user, roles.admin],
     addComment: [roles.user],
     addReply: [roles.user],
     editPost: [roles.user],
