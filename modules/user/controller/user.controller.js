@@ -91,7 +91,10 @@ const login = async (req, res) => {
     const { email, password } = req.body
     try {
         const emailExist = await userModel.findOne({ email })
-        if (emailExist && emailExist.isConfirmed) {
+        if (emailExist) {
+            if (!emailExist.isConfirmed) {
+                res.status(400).json({ message: "Email is Not Confirmed Yet" })
+            }
             const bytes = CryptoJS.AES.decrypt(emailExist.password, process.env.SECRET_KEY);
             const originalText = bytes.toString(CryptoJS.enc.Utf8);
             // console.log(originalText);
