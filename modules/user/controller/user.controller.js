@@ -91,7 +91,7 @@ const login = async (req, res) => {
     const { email, password } = req.body
     try {
         const emailExist = await userModel.findOne({ email })
-        if (emailExist) {
+        if (emailExist && emailExist.isConfirmed) {
             const bytes = CryptoJS.AES.decrypt(emailExist.password, process.env.SECRET_KEY);
             const originalText = bytes.toString(CryptoJS.enc.Utf8);
             // console.log(originalText);
