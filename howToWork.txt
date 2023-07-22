@@ -24,8 +24,8 @@
     ## login <POST>
     https://mini-insta.onrender.com/user/login {
         body:{
-            "email":"",
-            "password": ""
+            "email": Email Must Be Confirmed,
+            "password": 
         }
     }
 
